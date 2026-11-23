@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uacrovn — Digital Electronics, Hardware & Robotics</title>
+    <meta name="description" content="Official engineering hub of uacrovn. Digital electronics, hardware prototyping, robotics, and 3D CAD based in Pilsen, Czech Republic.">
+    <style>
+        :root {
+            --bg: #0b0d10;
+            --card: #14181f;
+            --text: #e6edf3;
+            --muted: #8b949e;
+            --accent: #00d2ff;
+            --border: #262c36;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace; }
+        body { background: var(--bg); color: var(--text); line-height: 1.6; padding: 40px 20px; max-width: 800px; margin: 0 auto; }
+        header { display: flex; align-items: center; gap: 20px; margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 30px; }
+        img.avatar { width: 90px; height: 90px; border-radius: 50%; border: 2px solid var(--accent); object-fit: cover; }
+        h1 { font-size: 2rem; letter-spacing: 1px; }
+        .tagline { color: var(--accent); font-size: 0.95rem; margin-top: 4px; }
+        .location { color: var(--muted); font-size: 0.85rem; margin-top: 4px; }
+        .links { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+        .links a { background: var(--card); color: var(--text); text-decoration: none; padding: 8px 16px; border-radius: 6px; border: 1px solid var(--border); font-size: 0.9rem; transition: 0.2s; }
+        .links a:hover { border-color: var(--accent); color: var(--accent); }
+        h2 { font-size: 1.2rem; margin-bottom: 15px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; }
+        .repo { background: var(--card); border: 1px solid var(--border); padding: 18px; border-radius: 8px; text-decoration: none; color: inherit; display: block; transition: 0.2s; }
+        .repo:hover { border-color: var(--accent); transform: translateY(-2px); }
+        .repo-title { color: var(--accent); font-weight: bold; margin-bottom: 6px; }
+        .repo-desc { font-size: 0.85rem; color: var(--muted); }
+        footer { margin-top: 50px; text-align: center; color: var(--muted); font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <img class="avatar" src="https://github.com" alt="uacrovn">
+        <div>
+            <h1>uacrovn ⚡</h1>
+            <div class="tagline">Digital Electronics, Hardware & Robotics</div>
+            <div class="location">Pilsen, Czech Republic 🇨🇿</div>
+        </div>
+    </header>
+
+    <div class="links">
+        <a href="https://github.com" target="_blank">GitHub</a>
+        <a href="https://x.com" target="_blank">X (Twitter)</a>
+        <a href="https://youtube.com" target="_blank">YouTube</a>
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://printables.com" target="_blank">Printables</a>
+        <a href="https://grabcad.com" target="_blank">GrabCAD</a>
+    </div>
+
+    <h2>Live Projects & Repositories</h2>
+    <div class="grid" id="repos">Loading projects from GitHub...</div>
+
+    <footer>uacrovn • Automated Engineering Hub</footer>
+
+    <script>
+        fetch('https://github.com')
+            .then(res => res.json())
+            .then(data => {
+                const container = document.getElementById('repos');
+                const filtered = data.filter(r => r.name !== 'uacrovn' && r.name !== 'uacrovn.github.io');
+                if (filtered.length === 0) {
+                    container.innerHTML = '<div class="repo"><div class="repo-title">System Online</div><div class="repo-desc">Hardware & electronics repositories initializing soon...</div></div>';
+                    return;
+                }
+                container.innerHTML = filtered.map(repo => `
+                    <a class="repo" href="${repo.html_url}" target="_blank">
+                        <div class="repo-title">${repo.name}</div>
+                        <div class="repo-desc">${repo.description || 'Digital electronics / hardware repository.'}</div>
+                    </a>
+                `).join('');
+            });
+    </script>
+</body>
+</html>
