@@ -1,0 +1,24 @@
+# uacrovn (Pavlo)
+
+> 15-year-old Mechatronics & Robotics student based in Pilsen, Czechia. Aiming to study at SPŠS.
+
+## Identity
+- Name: Pavlo (uacrovn)
+- Location: Pilsen, Czech Republic
+- Focus: Digital Electronics, Hardware, Robotics, 3D CAD.
+
+## Current Projects
+- **l293d-motor-driver**: H-Bridge motor control using L293D and Arduino PWM.
+- **Jarvis**: Custom AI assistant - Concept and planning phase.
+
+## Current Learning Focus
+- **Digital Electronics:** Learning logic gates, microcontrollers, and hardware debugging.
+- **Programming:** Learning programming fundamentals through Arduino blocks and basic C++ sketches.
+- **3D Modeling:** Exploring 3D design and setting up profiles on Printables and GrabCAD.
+- **Tooling:** Strong keyboard skills and fast adaptation to new software environments.
+
+## Links
+- GitHub: https://github.com/uacrovn
+- Web: https://uacrovn.github.io
+- Printables: https://www.printables.com/@uacrovn_5731650
+- GrabCAD: https://grabcad.com/uacrovn-2
